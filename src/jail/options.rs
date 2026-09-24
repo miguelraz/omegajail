@@ -501,7 +501,7 @@ impl JailOptions {
                     execve_args.extend(compile_sources.iter().map(|s| s.clone()));
                 }
                 args::Language::Julia => {
-                    seccomp_profile_name = String::from("julia");
+                    seccomp_profile_name = String::from("jl");
                     mounts.push(MountArgs {
                         source: Some(root.join("root-julia")),
                         target: rootfs.join("opt/julia"),
