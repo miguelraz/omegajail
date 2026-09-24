@@ -116,17 +116,6 @@ jobs:
               /usr/bin/python3 /src/test
           }
 
-      - name: Trace Julia syscalls
-        if: always()
-        run: |
-          docker run \
-            --rm \
-            --mount "type=bind,source=$(pwd)/smoketest,target=/src" \
-            --user "$(id -u):$(id -g)" \
-            omegaup/omegajail-builder-rootfs-runtime-debug \
-            /usr/bin/strace -f -o /src/run/jl/strace-direct.txt \
-              /opt/julia/bin/julia /src/sumas.jl < /src/input
-
       - name: Upload artifacts
         if: ${{ always() }}
         uses: actions/upload-artifact@v7
