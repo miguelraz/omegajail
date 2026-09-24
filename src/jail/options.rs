@@ -510,7 +510,7 @@ impl JailOptions {
                         data: None,
                     });
                     execve_args.extend([
-                        String::from("/opt/go/bin/julia"),
+                        String::from("/opt/julia/bin/julia"),
                         String::from("-e"),
                         args.compile_target.clone(),
                     ]);
